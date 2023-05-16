@@ -91,7 +91,7 @@ pin: one LED contact is attached to the ground pin (GND), and another contact
 is attached to a signal pin via a current-limiting resistor.  A firmware code
 can set high or low voltage on a signal pin, making LED blink:
 
-<img src="images/mcu.svg" height="200" />
+<img src="images/mcu.png" height="200" />
 
 ### Memory and registers
 
@@ -106,7 +106,7 @@ that RAM region starts at address 0x20000000 and has size of 192KB. From section
 2.4 we can learn that flash is mapped at address 0x08000000. Our MCU has
 2MB flash, so flash and RAM regions are located like this:
 
-<img src="images/mem.svg" />
+<img src="images/mem.png" />
 
 From the datasheet we can also learn that there are many more memory regions.
 Their address ranges are given in the section 2.3 "Memory Map". For example,
@@ -490,7 +490,7 @@ __attribute__((naked, noreturn)) void _reset(void) {
 
 The following diagram visualises how `_reset()` initialises .data and .bss:
 
-![](images/mem2.svg)
+![](images/mem2.png)
 
 The `firmware.bin` file is just a concatenation of the three sections:
 `.vectors` (IRQ vector table), `.text` (code) and `.data` (data).  Those
@@ -850,7 +850,7 @@ on each cycle by 1, and when it reaches 0, an interrupt is generated. The
 firmware code execution gets interrupted: a `SysTick_Handler()` function is
 called to increment `s_tick` variable. Here how it looks like on a time scale:
 
-![](images/systick.svg)
+![](images/systick.png)
 
 
 The `volatile` specifier is required here becase `s_ticks` is modified by the
@@ -1695,7 +1695,7 @@ When done, your target device will have an authenticated, secure RESTful
 API for reflashing and capturing device output. It can be called from anywhere,
 for example from the software CI:
 
-![VCON module operation](images/hero.svg)
+![VCON module operation](images/hero.png)
 
 Note: the [vcon.io](https://vcon.io) service is run by Cesanta - the company I
 work for. It is a paid service with a freebie quota: if you have just a few
